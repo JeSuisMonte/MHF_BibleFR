@@ -1,0 +1,280 @@
+@font-face {
+    font-family: "copperplategothicbold";
+    src: url('font/copperplategothicbold.woff') format('woff');
+}
+:root{
+  --btn-color: #1d0607;
+  --hover-btn-color: #ffae00;
+  --btn-border: #241209;
+  --text-color: #000000;
+
+  --card-bg: #2f3136;      /* fond carte */
+  --card-accent: #36393f;  /* section texte */
+  --muted: #b9bbbe;
+  --title-color: #ffffff;
+  --green: #2f9e4a;        /* bouton vert */
+  --shadow: 0 4px 10px rgba(0,0,0,0.5);
+  --radius: 12px;
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+html {
+  background: url("img/g.png");
+}
+/*main, .content {
+  outline: 2px solid red; 
+}*/
+main{
+  position: relative;
+  left: clamp(100px, 20%, 350px); /* ← ça remplace margin-left dans ce cas */
+  width: calc(100% - clamp(100px, 20%, 350px)); /* empêche l’écrasement */
+  padding: min(5px, 7%);
+  min-height: 100vh;
+}
+main p{
+  margin-top: 5px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+main h2{
+  text-align: center;
+}
+
+/*Reminder Container*/
+.reminders-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  margin: 25px 0;
+  flex-wrap: wrap; /* permet aux reminders de passer à la ligne si nécessaire */
+}
+
+/* Ravi Reminder*/
+.ravi_reminder {
+  border-radius: 10px;
+  background: url(img/ravi_reminder.png);
+  background-size: cover;
+  width: 470px;
+  height: 293px;
+  padding: 15px 25px;
+}
+
+.ravi_reminder__value {
+  margin-top: 195px;
+  margin-right: 295px;
+  text-align: center;
+  font-size: 60px;
+  font-weight: bold;
+  color: #666;
+}
+
+.ravi_reminder__date {
+  margin-top: 0px;
+  margin-left: 132px;
+  font-size: 14px;
+  color: #666;
+}
+
+#reminderDays {
+  position: relative;
+  height: 35px;
+  text-align: center;
+}
+#reminderDays img {
+  height: auto;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*Ex Road Reminder*/
+.road_reminder {
+  border-radius: 10px;
+  background: url(img/road_reminder.png);
+  background-size: cover;
+  width: 470px;
+  height: 293px;
+  padding: 15px 25px;
+}
+#roadStatus {
+  position: relative; /* parent pour l'image absolue */
+  height: 50px;       /* hauteur fixe pour contenir l'image */
+  text-align: center; /* si tu veux centrer le texte au cas où */
+}
+.roadStatusImg {
+  position: absolute;
+  top: 165px;            /* décalage depuis le haut du parent */
+  left: 50%;
+  transform: translateX(-3%);
+  height: 85px;
+}
+
+/* Conteneur de la durée restante */
+#roadDurationContainer {
+  display: flex; /* ou flex si tu veux aligner horizontalement */
+  margin-bottom: 208px;
+}
+
+/* Durée restante */
+#roadDuration {
+  font-size: 14px;
+  color: #666;
+  position: relative;
+  display: block;
+  text-align: center;
+  top: 170px; /* Descend visuellement sans affecter le flux */
+  margin-right: 100px;
+}
+
+/* Prochaine Road */
+#nextRoad {
+  line-height: 1;
+  font-size: 14px;
+  color: #666;
+  margin-left: 130px;
+  display: block;
+  text-align: left;
+}
+
+.road_reminder strong { color:#555; }
+#roadStatus.today { color: #c00; font-weight:bold; }
+
+
+/** =========================================Discord Invite=================================================*/
+
+.server-card{
+  width:360px;
+  margin: auto;
+  border-radius: var(--radius);
+  background: linear-gradient(#111214, #1b1c1f); /* subtile gradient */
+  box-shadow: var(--shadow);
+  color:var(--muted);
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+
+/* Bannière en haut */
+.server-banner{
+  height:80px;
+  background: url('img/rain_ban.jpg') center/cover no-repeat;
+/* fallback si tu n'as pas d'image : dégradé */
+  background-color:#222;
+  position:relative;
+}
+/* petit arrondi en haut */
+.server-card .server-banner{
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+}
+
+/* Contenu principal */
+.server-body{
+  background: #2b2d31;
+  padding: 14px;
+  padding-top: 28px; /* espace pour l'avatar qui dépasse */
+}
+
+.top-row{
+  position: relative;
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+}
+
+.avatar-wrap{
+  position: absolute;
+  width:72px;
+  height:72px;
+  margin-top:-66px; /* pour faire dépasser l'avatar par dessus la bannière */
+  margin-left:6px;
+  flex:0 0 72px;
+}
+.avatar{
+  width:72px;
+  height:72px;
+  border-radius:14px;
+  border:4px solid rgba(43,45,49,0.9);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.6);
+  object-fit:cover;
+  background:#111;
+  display:block;
+}
+
+.title-area{
+  margin-top: 25px;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.server-name{
+  font-weight:700;
+  color:var(--title-color);
+  font-size:16px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.verified-badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:20px;
+  height:20px;
+  font-size:12px;
+  border-radius:50%;
+  background: linear-gradient(180deg,#ffe6f6,#ffd6f0);
+  color:#6b1a86;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.2) inset;
+}
+
+.sub-meta{
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.2;
+}
+
+.stats{
+  margin-top:6px;
+  font-size:13px;
+  color:var(--muted);
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.desc{
+  margin-top:12px;
+  color:#d8d8d8;
+  font-size:12px;
+  text-align: left;
+}
+
+/* Bouton bottom */
+.card-footer{
+  padding: 12px 14px 16px;
+  background: linear-gradient(#28292c,#232426);
+  border-bottom-left-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
+}
+
+.go-btn{
+  display:block;
+  width:100%;
+  text-align:center;
+  padding:10px 1px;
+  background-color: #19a24b;
+  color:#fff;
+  font-weight:700;
+  border-radius:8px;
+  text-decoration:none;
+  box-shadow: 0 4px 0 rgba(0,0,0,0.25);
+  transition: transform .08s ease, box-shadow .08s ease;
+}
+.go-btn:hover{
+  background-color: #1cb353;
+}
+.go-btn:active{ transform: translateY(1px); box-shadow: 0 15px 0 rgba(0,0,0,0.2);}
