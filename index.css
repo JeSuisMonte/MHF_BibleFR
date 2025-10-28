@@ -22,18 +22,19 @@
 }*/
 main{
   position: relative;
+  margin-top: 5px;
+  margin-bottom: 15px;
   left: clamp(100px, 20%, 350px); /* ← ça remplace margin-left dans ce cas */
   width: calc(100% - clamp(100px, 20%, 350px)); /* empêche l’écrasement */
   padding: min(5px, 7%);
   min-height: 110vh;
+}
+#main_bg{
   background: url(img/placeholder.png);
-  background-size: auto 100%;
   background-repeat: no-repeat;
   background-position: top;
 }
 main p{
-  margin-top: 5px;
-  margin-bottom: 15px;
   text-align: center;
   color: var(--text-color);
 }
