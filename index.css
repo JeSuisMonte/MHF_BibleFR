@@ -31,6 +31,7 @@ main{
 }
 #main_bg{
   background: url(img/placeholder.png);
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
 }
