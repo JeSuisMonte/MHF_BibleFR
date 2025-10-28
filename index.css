@@ -6,7 +6,7 @@
   --btn-color: #1d0607;
   --hover-btn-color: #ffae00;
   --btn-border: #241209;
-  --text-color: #000000;
+  --text-color: #ffffff;
 
   --card-bg: #2f3136;      /* fond carte */
   --card-accent: #36393f;  /* section texte */
@@ -17,9 +17,6 @@
   --radius: 12px;
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
-html {
-  background: url("img/g.png");
-}
 /*main, .content {
   outline: 2px solid red; 
 }*/
@@ -28,15 +25,21 @@ main{
   left: clamp(100px, 20%, 350px); /* ← ça remplace margin-left dans ce cas */
   width: calc(100% - clamp(100px, 20%, 350px)); /* empêche l’écrasement */
   padding: min(5px, 7%);
-  min-height: 100vh;
+  min-height: 110vh;
+  background: url(img/placeholder.png);
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  background-position: top;
 }
 main p{
   margin-top: 5px;
   margin-bottom: 15px;
   text-align: center;
+  color: var(--text-color);
 }
 main h2{
   text-align: center;
+  color: var(--text-color);
 }
 
 /*Reminder Container*/
@@ -61,7 +64,7 @@ main h2{
 
 .ravi_reminder__value {
   margin-top: 195px;
-  margin-right: 295px;
+  margin-left: -9%;
   text-align: center;
   font-size: 60px;
   font-weight: bold;
@@ -76,17 +79,23 @@ main h2{
 }
 
 #reminderDays {
-  position: relative;
-  height: 35px;
+  width: 200px;
+  height: 30px; 
+  display: flex;
+  align-items: center;
+  justify-content: center; /* centre horizontalement le contenu */
   text-align: center;
 }
+
+/* Pas besoin de position absolue ni de transform */
 #reminderDays img {
+  max-width: 100%;
+  margin-bottom: 10px;
+  margin-left: 5px;
   height: auto;
-  position: absolute;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: block;
 }
+
 
 /*Ex Road Reminder*/
 .road_reminder {
@@ -118,21 +127,23 @@ main h2{
 
 /* Durée restante */
 #roadDuration {
+  position: absolute;
+  margin-top: 170px;
   font-size: 14px;
   color: #666;
-  position: relative;
-  display: block;
-  text-align: center;
-  top: 170px; /* Descend visuellement sans affecter le flux */
-  margin-right: 100px;
+  margin-left: 132px;
+  display: flex;
+  text-align: left;
 }
 
 /* Prochaine Road */
 #nextRoad {
+  position: absolute;
+  margin-top: 25px;
   line-height: 1;
   font-size: 14px;
   color: #666;
-  margin-left: 130px;
+  margin-left: 132px;
   display: block;
   text-align: left;
 }
