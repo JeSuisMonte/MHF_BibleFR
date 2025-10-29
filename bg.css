@@ -48,13 +48,3 @@
   mix-blend-mode: overlay;      /* si tu veux un effet de fusion */
   z-index: 3;
 }
-
-/* --- Animation du mouvement horizontal --- */
-@keyframes moveIcons {
-  from {
-    background-position-x: 0;
-  }
-  to {
-    background-position-x: 100%;
-  }
-}

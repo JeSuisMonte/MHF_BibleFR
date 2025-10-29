@@ -21,17 +21,19 @@
   outline: 2px solid red; 
 }*/
 main{
-  position: relative;
-  margin-top: 5px;
-  margin-bottom: 15px;
-  left: clamp(100px, 20%, 350px); /* ← ça remplace margin-left dans ce cas */
-  width: calc(100% - clamp(100px, 20%, 350px)); /* empêche l’écrasement */
+  position: absolute;
+  left: clamp(100px, 20%, 350px);
+  width: calc(100% - clamp(100px, 20%, 350px));
   padding: min(5px, 7%);
-  min-height: 110vh;
+  display: flex;
+  flex-direction: column; /* si plusieurs h2 empilés */
+  align-items: center;    /* centre horizontalement tous les h2 */
+  gap: 20px;              /* espacement entre h2 */
 }
-#main_bg{
-  background: url(img/placeholder.png);
-  background-repeat: no-repeat;
+.bg_main{
+  background: url(img/bg_main.png) no-repeat top;
+  background-size: 1450px 100%;
+  background-attachment: scroll;
   background-position: top;
 }
 main p{
@@ -39,9 +41,32 @@ main p{
   color: var(--text-color);
 }
 main h2{
+  font-size: 30px;
+  margin-top: 10px;
   text-align: center;
   color: var(--text-color);
 }
+.H2_Frame {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 60px;
+  padding: 0 10px;
+  background-image: url('img/h2_M.png');
+  background-size: auto 100%;
+}
+.H2_Frame::before,
+.H2_Frame::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 20px;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.H2_Frame::before { right: 100%; background-image: url('img/h2_L.png'); }
+.H2_Frame::after { left: 100%; background-image: url('img/h2_R.png'); }
 
 /*Reminder Container*/
 .reminders-container {
@@ -50,7 +75,7 @@ main h2{
   align-items: flex-start;
   gap: 30px;
   margin: 25px 0;
-  flex-wrap: wrap; /* permet aux reminders de passer à la ligne si nécessaire */
+  flex-wrap: wrap;
 }
 
 /* Ravi Reminder*/
@@ -62,7 +87,6 @@ main h2{
   height: 293px;
   padding: 15px 25px;
 }
-
 .ravi_reminder__value {
   margin-top: 195px;
   margin-left: -9%;
@@ -71,24 +95,20 @@ main h2{
   font-weight: bold;
   color: #666;
 }
-
 .ravi_reminder__date {
   margin-top: 0px;
   margin-left: 132px;
   font-size: 14px;
   color: #666;
 }
-
 #reminderDays {
   width: 200px;
   height: 30px; 
   display: flex;
   align-items: center;
-  justify-content: center; /* centre horizontalement le contenu */
+  justify-content: center;
   text-align: center;
 }
-
-/* Pas besoin de position absolue ni de transform */
 #reminderDays img {
   max-width: 100%;
   margin-bottom: 10px;
@@ -96,7 +116,6 @@ main h2{
   height: auto;
   display: block;
 }
-
 
 /*Ex Road Reminder*/
 .road_reminder {
@@ -108,25 +127,21 @@ main h2{
   padding: 15px 25px;
 }
 #roadStatus {
-  position: relative; /* parent pour l'image absolue */
-  height: 50px;       /* hauteur fixe pour contenir l'image */
-  text-align: center; /* si tu veux centrer le texte au cas où */
+  position: relative;
+  height: 50px;
+  text-align: center;
 }
 .roadStatusImg {
   position: absolute;
-  top: 165px;            /* décalage depuis le haut du parent */
+  top: 165px;
   left: 50%;
   transform: translateX(-3%);
   height: 85px;
 }
-
-/* Conteneur de la durée restante */
 #roadDurationContainer {
-  display: flex; /* ou flex si tu veux aligner horizontalement */
+  display: flex;
   margin-bottom: 208px;
 }
-
-/* Durée restante */
 #roadDuration {
   position: absolute;
   margin-top: 170px;
@@ -136,8 +151,6 @@ main h2{
   display: flex;
   text-align: left;
 }
-
-/* Prochaine Road */
 #nextRoad {
   position: absolute;
   margin-top: 25px;
@@ -148,7 +161,6 @@ main h2{
   display: block;
   text-align: left;
 }
-
 .road_reminder strong { color:#555; }
 #roadStatus.today { color: #c00; font-weight:bold; }
 
@@ -159,46 +171,38 @@ main h2{
   width:360px;
   margin: auto;
   border-radius: var(--radius);
-  background: linear-gradient(#111214, #1b1c1f); /* subtile gradient */
+  background: linear-gradient(#111214, #1b1c1f);
   box-shadow: var(--shadow);
   color:var(--muted);
   overflow: hidden;
   margin-bottom: 25px;
 }
-
-/* Bannière en haut */
 .server-banner{
   height:80px;
   background: url('img/rain_ban.jpg') center/cover no-repeat;
-/* fallback si tu n'as pas d'image : dégradé */
   background-color:#222;
   position:relative;
 }
-/* petit arrondi en haut */
 .server-card .server-banner{
   border-top-left-radius: var(--radius);
   border-top-right-radius: var(--radius);
 }
-
-/* Contenu principal */
 .server-body{
   background: #2b2d31;
   padding: 14px;
-  padding-top: 28px; /* espace pour l'avatar qui dépasse */
+  padding-top: 28px;
 }
-
 .top-row{
   position: relative;
   display:flex;
   gap:12px;
   align-items:flex-start;
 }
-
 .avatar-wrap{
   position: absolute;
   width:72px;
   height:72px;
-  margin-top:-66px; /* pour faire dépasser l'avatar par dessus la bannière */
+  margin-top:-66px;
   margin-left:6px;
   flex:0 0 72px;
 }
@@ -212,7 +216,6 @@ main h2{
   background:#111;
   display:block;
 }
-
 .title-area{
   margin-top: 25px;
   flex:1;
@@ -220,7 +223,6 @@ main h2{
   flex-direction:column;
   gap:6px;
 }
-
 .server-name{
   font-weight:700;
   color:var(--title-color);
@@ -229,7 +231,6 @@ main h2{
   align-items:center;
   gap:8px;
 }
-
 .verified-badge{
   display:inline-flex;
   align-items:center;
@@ -242,13 +243,11 @@ main h2{
   color:#6b1a86;
   box-shadow: 0 1px 0 rgba(0,0,0,0.2) inset;
 }
-
 .sub-meta{
   font-size:13px;
   color:var(--muted);
   line-height:1.2;
 }
-
 .stats{
   margin-top:6px;
   font-size:13px;
@@ -257,22 +256,18 @@ main h2{
   gap:10px;
   align-items:center;
 }
-
 .desc{
   margin-top:12px;
   color:#d8d8d8;
   font-size:12px;
   text-align: left;
 }
-
-/* Bouton bottom */
 .card-footer{
   padding: 12px 14px 16px;
   background: linear-gradient(#28292c,#232426);
   border-bottom-left-radius: var(--radius);
   border-bottom-right-radius: var(--radius);
 }
-
 .go-btn{
   display:block;
   width:100%;
