@@ -2,8 +2,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 3000px;   /* assez grand pour couvrir les coins avec rotation */
-  height: 3000px;
+  width: 3500px;   /* assez grand pour couvrir les coins avec rotation */
+  height: 3500px;
   overflow: hidden;
   z-index: -1;
   transform-origin: center;
