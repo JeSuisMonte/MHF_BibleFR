@@ -21,62 +21,68 @@
 /*main, .content {
   outline: 2px solid red; 
 }*/
-main{
-  position: absolute;
-  left: clamp(100px, 20%, 350px);
-  width: calc(100% - clamp(100px, 20%, 350px));
-  padding: min(5px, 7%);
-  display: flex;
-  flex-direction: column; /* si plusieurs h2 empilés */
-  align-items: center;    /* centre horizontalement tous les h2 */
-  gap: 20px;              /* espacement entre h2 */
+main {
+	position: absolute;
+	left: clamp(100px, 20%, 350px);
+	width: calc(100% - clamp(100px, 20%, 350px));
+	padding: min(5px, 7%);
+	display: flex;
+	flex-direction: column; /* si plusieurs h2 empilés */
+	align-items: center; /* centre horizontalement tous les h2 */
+	gap: 20px; /* espacement entre h2 */
 }
-.bg_main{
-  background: url(img/bg_main.png) no-repeat top;
-  background-size: 1450px 100%;
-  background-attachment: scroll;
-  background-position: top;
+.bg_main {
+	background: url(img/bg_main.png) no-repeat top;
+	background-size: 1450px 100%;
+	background-attachment: scroll;
+	background-position: top;
 }
 main p {
 	text-align: center;
 	color: var(--text-color);
 }
-main h2{
-  font-size: 30px;
-  margin-top: 10px;
-  text-align: center;
-  color: var(--text-color);
+main h2 {
+	font-size: 30px;
+	margin-top: 10px;
+	text-align: center;
+	color: var(--text-color);
 }
 .H2_Frame {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  height: 60px;
-  padding: 0 10px;
-  background-image: url('img/h2_M.png');
-  background-size: auto 100%;
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	height: 60px;
+	padding: 0 10px;
+	background-image: url("img/h2_M.png");
+	background-size: auto 100%;
 }
 .H2_Frame::before,
 .H2_Frame::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 20px;
-  height: 100%;
-  background-size: contain;
-  background-repeat: no-repeat;
+	content: "";
+	position: absolute;
+	top: 0;
+	width: 20px;
+	height: 100%;
+	background-size: contain;
+	background-repeat: no-repeat;
 }
-.H2_Frame::before { right: 100%; background-image: url('img/h2_L.png'); }
-.H2_Frame::after { left: 100%; background-image: url('img/h2_R.png'); }
+.H2_Frame::before {
+	right: 100%;
+	background-image: url("img/h2_L.png");
+}
+.H2_Frame::after {
+	left: 100%;
+	background-image: url("img/h2_R.png");
+}
 
 /*Reminder Container*/
 .reminders-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 30px;
-  margin: 25px 0;
-  flex-wrap: wrap;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 30px;
+	margin: 25px 0;
+	flex-wrap: wrap;
 }
 
 /* Ravi Reminder*/
@@ -103,12 +109,12 @@ main h2{
 	color: #666;
 }
 #reminderDays {
-  width: 200px;
-  height: 30px; 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+	width: 200px;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
 }
 #reminderDays img {
 	max-width: 100%;
@@ -128,20 +134,20 @@ main h2{
 	padding: 15px 25px;
 }
 #roadStatus {
-  position: relative;
-  height: 50px;
-  text-align: center;
+	position: relative;
+	height: 50px;
+	text-align: center;
 }
 .roadStatusImg {
-  position: absolute;
-  top: 165px;
-  left: 50%;
-  transform: translateX(-3%);
-  height: 85px;
+	position: absolute;
+	top: 165px;
+	left: 50%;
+	transform: translateX(-3%);
+	height: 85px;
 }
 #roadDurationContainer {
-  display: flex;
-  margin-bottom: 208px;
+	display: flex;
+	margin-bottom: 208px;
 }
 #roadDuration {
 	position: absolute;
@@ -162,50 +168,54 @@ main h2{
 	display: block;
 	text-align: left;
 }
-.road_reminder strong { color:#555; }
-#roadStatus.today { color: #c00; font-weight:bold; }
-
+.road_reminder strong {
+	color: #555;
+}
+#roadStatus.today {
+	color: #c00;
+	font-weight: bold;
+}
 
 /** =========================================Discord Invite=================================================*/
 
-.server-card{
-  width:360px;
-  margin: auto;
-  border-radius: var(--radius);
-  background: linear-gradient(#111214, #1b1c1f);
-  box-shadow: var(--shadow);
-  color:var(--muted);
-  overflow: hidden;
-  margin-bottom: 25px;
+.server-card {
+	width: 360px;
+	margin: auto;
+	border-radius: var(--radius);
+	background: linear-gradient(#111214, #1b1c1f);
+	box-shadow: var(--shadow);
+	color: var(--muted);
+	overflow: hidden;
+	margin-bottom: 25px;
 }
-.server-banner{
-  height:80px;
-  background: url('img/rain_ban.jpg') center/cover no-repeat;
-  background-color:#222;
-  position:relative;
+.server-banner {
+	height: 80px;
+	background: url("img/rain_ban.jpg") center/cover no-repeat;
+	background-color: #222;
+	position: relative;
 }
-.server-card .server-banner{
-  border-top-left-radius: var(--radius);
-  border-top-right-radius: var(--radius);
+.server-card .server-banner {
+	border-top-left-radius: var(--radius);
+	border-top-right-radius: var(--radius);
 }
-.server-body{
-  background: #2b2d31;
-  padding: 14px;
-  padding-top: 28px;
+.server-body {
+	background: #2b2d31;
+	padding: 14px;
+	padding-top: 28px;
 }
-.top-row{
-  position: relative;
-  display:flex;
-  gap:12px;
-  align-items:flex-start;
+.top-row {
+	position: relative;
+	display: flex;
+	gap: 12px;
+	align-items: flex-start;
 }
-.avatar-wrap{
-  position: absolute;
-  width:72px;
-  height:72px;
-  margin-top:-66px;
-  margin-left:6px;
-  flex:0 0 72px;
+.avatar-wrap {
+	position: absolute;
+	width: 72px;
+	height: 72px;
+	margin-top: -66px;
+	margin-left: 6px;
+	flex: 0 0 72px;
 }
 .avatar {
 	width: 72px;
@@ -217,70 +227,70 @@ main h2{
 	background: #111;
 	display: block;
 }
-.title-area{
-  margin-top: 25px;
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  gap:6px;
+.title-area {
+	margin-top: 25px;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
 }
-.server-name{
-  font-weight:700;
-  color:var(--title-color);
-  font-size:16px;
-  display:flex;
-  align-items:center;
-  gap:8px;
+.server-name {
+	font-weight: 700;
+	color: var(--title-color);
+	font-size: 16px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
 }
-.verified-badge{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  width:20px;
-  height:20px;
-  font-size:12px;
-  border-radius:50%;
-  background: linear-gradient(180deg,#ffe6f6,#ffd6f0);
-  color:#6b1a86;
-  box-shadow: 0 1px 0 rgba(0,0,0,0.2) inset;
+.verified-badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+	height: 20px;
+	font-size: 12px;
+	border-radius: 50%;
+	background: linear-gradient(180deg, #ffe6f6, #ffd6f0);
+	color: #6b1a86;
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2) inset;
 }
-.sub-meta{
-  font-size:13px;
-  color:var(--muted);
-  line-height:1.2;
+.sub-meta {
+	font-size: 13px;
+	color: var(--muted);
+	line-height: 1.2;
 }
-.stats{
-  margin-top:6px;
-  font-size:13px;
-  color:var(--muted);
-  display:flex;
-  gap:10px;
-  align-items:center;
+.stats {
+	margin-top: 6px;
+	font-size: 13px;
+	color: var(--muted);
+	display: flex;
+	gap: 10px;
+	align-items: center;
 }
-.desc{
-  margin-top:12px;
-  color:#d8d8d8;
-  font-size:12px;
-  text-align: left;
+.desc {
+	margin-top: 12px;
+	color: #d8d8d8;
+	font-size: 12px;
+	text-align: left;
 }
-.card-footer{
-  padding: 12px 14px 16px;
-  background: linear-gradient(#28292c,#232426);
-  border-bottom-left-radius: var(--radius);
-  border-bottom-right-radius: var(--radius);
+.card-footer {
+	padding: 12px 14px 16px;
+	background: linear-gradient(#28292c, #232426);
+	border-bottom-left-radius: var(--radius);
+	border-bottom-right-radius: var(--radius);
 }
-.go-btn{
-  display:block;
-  width:100%;
-  text-align:center;
-  padding:10px 1px;
-  background-color: #19a24b;
-  color:#fff;
-  font-weight:700;
-  border-radius:8px;
-  text-decoration:none;
-  box-shadow: 0 4px 0 rgba(0,0,0,0.25);
-  transition: transform .08s ease, box-shadow .08s ease;
+.go-btn {
+	display: block;
+	width: 100%;
+	text-align: center;
+	padding: 10px 1px;
+	background-color: #19a24b;
+	color: #fff;
+	font-weight: 700;
+	border-radius: 8px;
+	text-decoration: none;
+	box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25);
+	transition: transform 0.08s ease, box-shadow 0.08s ease;
 }
 .go-btn:hover {
 	background-color: #1cb353;
